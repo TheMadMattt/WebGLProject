@@ -26,7 +26,7 @@ var X, Y, Z;
 
 var running = false;
 
-var img1, img2, img3;
+var img1, img2, img3, img4;
 
 // funkcja główna 
 
@@ -54,6 +54,7 @@ function getImage() {
    img1 = document.getElementById('img1').checked;
    img2 = document.getElementById('img2').checked;
    img3 = document.getElementById('img3').checked;
+   img4 = document.getElementById('img4').checked;
 }
 
 // pobranie kontekstu WebGL
@@ -79,7 +80,8 @@ function gl_getContext (canvas) {
 function gl_initShaders () {
 	if(document.getElementById('img1').checked == true 
 	|| document.getElementById('img2').checked == true
-	|| document.getElementById('img3').checked == true){
+	|| document.getElementById('img3').checked == true
+	|| document.getElementById('img4').checked == true){
 			var vertexShader = "\n\
 		  attribute vec3 position;\n\
 		  uniform mat4 PosMatrix;\n\
@@ -148,7 +150,8 @@ function gl_initShaders () {
 
 	if(document.getElementById('img1').checked == true 
 	|| document.getElementById('img2').checked == true
-	|| document.getElementById('img3').checked == true){
+	|| document.getElementById('img3').checked == true
+	|| document.getElementById('img4').checked == true){
 		_sampler = gl_ctx.getUniformLocation(shaderProgram, "sampler");
 	   _uv = gl_ctx.getAttribLocation(shaderProgram, "uv");
 	   _position = gl_ctx.getAttribLocation(shaderProgram, "position");
@@ -223,6 +226,8 @@ function gl_initTexture() {
       img.src = 'images/cubeTexture2.png';
    } else if(img3) {
       img.src = 'images/cubeTexture3.png';
+   }else if(img4){
+	  img.src = 'images/pepe.png';
    }
 
    img.webglTexture = false;
@@ -256,7 +261,7 @@ function gl_draw() {
     var animate = function (time) {
 		
 		running = true;
-		
+		rotationSpeed = document.getElementById('rotateSpeed').value;
 		var dAngle = rotationSpeed * (time - timeOld);
 		
 		if (X) {
@@ -280,7 +285,8 @@ function gl_draw() {
 		
 		if(document.getElementById('img1').checked == true 
 		|| document.getElementById('img2').checked == true
-		|| document.getElementById('img3').checked == true){
+		|| document.getElementById('img3').checked == true
+		|| document.getElementById('img4').checked == true){
 			if (_pyramidTexture.webglTexture) {
 				 gl_ctx.activeTexture(gl_ctx.TEXTURE0);
 				 gl_ctx.bindTexture(gl_ctx.TEXTURE_2D, _pyramidTexture.webglTexture);

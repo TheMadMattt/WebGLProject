@@ -20,6 +20,11 @@
 <br>
 <input type="checkbox" id="img3"> Tekstura #3
 </div>
+
+<div style="float: left; margin: 0;"><img src="images/pepe.png" border="0" alt="Tekstura #4" title="Tekstura #4" width="100" height="100" />
+<br>
+<input type="checkbox" id="img4"> Tekstura #4
+</div>
 <br /><br /><br />
 	<div>
 		<br /><br /><br />
@@ -30,10 +35,11 @@
 			<input type="checkbox" id="rotateY"> Rotacja Y
 			<input type="checkbox" id="rotateZ"> Rotacja Z
 		</form><br />
-		<canvas id="glcanvas" width="500" height="300">Brak wsparcia dla elementu HTML canvas.</canvas>
+		<canvas id="glcanvas" width="500" height="500">Brak wsparcia dla elementu HTML canvas.</canvas>
 		<br />
 		<input type="button" value="Uruchom" onclick="runWebGL()"/>
 		<input type="button" value="Zamknij" onclick="self.close()"/> 
+		Rotation speed: <input type="number" id="rotateSpeed" title="Rotation speed" value="0.001">
    </div>
 </body>
 </html>
