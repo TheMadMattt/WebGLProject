@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-
 <html>
-
-<head>    
-   <title>WebGL</title>    
+<head>
+   <meta charset="UTF-8">
+   <title>WebGL projekt</title>
    <link rel="stylesheet" href="css/style.css">
+   <script src="js/main.js"></script>
+   <script src="js/matrix.js"></script>
 </head>
+<body>
+   <form class="rotationCheckboxes">
+      <input type="checkbox" id="rotateX"> rotacja X
+      <input type="checkbox" id="rotateY"> rotacja Y
+      <input type="checkbox" id="rotateZ"> rotacja Z 
+   </form>
+ 
 
-<body onload="runWebGL()">    
-  <canvas id="glcanvas" width="500" height="300">Brak wsparcia dla elementu HTML5 typu canvas.</canvas>
-  <script src="js/main.js"></script>
+   <canvas id="glcanvas" width="500" height="300">
+      Brak wsparcia dla elementu HTML5 typu canvas 
+   </canvas>
+   <br>
+   <input type="button" value="Uruchom" onclick="runWebGL()">
+   <input type="button" value="Zamknij" onclick="self.close()">
+
 </body>
-
 </html>
